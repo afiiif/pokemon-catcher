@@ -1,0 +1,60 @@
+{
+	"React Functional Component": {
+		"prefix": "rfc",
+		"body": [
+			"export default function ${1:${TM_FILENAME_BASE/(\\w+)(-)?/${1:/capitalize}${4:+-}/g}}() {",
+			"\treturn (",
+			"\t\t<${2:div}>$0</$2>",
+			"\t);",
+			"}",
+			""
+		],
+		"description": "React Functional Component"
+	},
+	"React Functional Component with Props": {
+		"prefix": "rfcc",
+		"body": [
+			"export default function ${1:${TM_FILENAME_BASE/(\\w+)(-)?/${1:/capitalize}${4:+-}/g}}({ ${2:children} }) {",
+			"\treturn (",
+			"\t\t<${3:div}$4>",
+			"\t\t\t${0:{children\\}}",
+			"\t\t</$3>",
+			"\t);",
+			"}",
+			""
+		],
+		"description": "React Functional Component with PropTypes"
+	},
+	"React Functional Component with PropTypes": {
+		"prefix": "rfcp",
+		"body": [
+			"import PropTypes from 'prop-types';",
+			"",
+			"export default function ${1:${TM_FILENAME_BASE/(\\w+)(-)?/${1:/capitalize}${4:+-}/g}}({ ${2:children} }) {",
+			"\treturn (",
+			"\t\t<${4:div}>$0</$4>",
+			"\t);",
+			"}",
+			"",
+			"$1.propTypes = {",
+			"\t$2: PropTypes.${3:node},",
+			"};",
+			""
+		],
+		"description": "React Functional Component with PropTypes"
+	},
+	"Next.js Page Component": {
+		"prefix": "nxpg",
+		"body": [
+			"export default function ${1:${TM_FILENAME_BASE/(\\w+)(-)?/${1:/capitalize}${4:+-}/g}}Page() {",
+			"\treturn (",
+			"\t\t<$2>",
+			"\t\t\t$0",
+			"\t\t</$2>",
+			"\t);",
+			"}",
+			""
+		],
+		"description": "Next.js Page Component"
+	}
+}
