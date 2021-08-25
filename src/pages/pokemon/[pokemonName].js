@@ -2,6 +2,7 @@ import { useRouter } from 'next/dist/client/router';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import { getAllPokemonNames, getPokemon } from '../../api/pokemon';
+import { usePokemonStorage } from '../../components/wrapper/pokemon-storage-context';
 
 export default function PokemonDetailPage({ initialPokemon }) {
   const { query } = useRouter();
@@ -10,6 +11,8 @@ export default function PokemonDetailPage({ initialPokemon }) {
     initialData: initialPokemon,
     enabled: !!query.pokemonName,
   });
+
+  const { addPokemon } = usePokemonStorage();
 
   return (
     <main className="p-6">
@@ -22,9 +25,18 @@ export default function PokemonDetailPage({ initialPokemon }) {
         }
         if (queryPokemon.data) {
           return (
-            <pre className="border p-3 rounded bg-gray-100 overflow-x-auto text-xs">
-              {JSON.stringify(queryPokemon.data, null, 2)}
-            </pre>
+            <>
+              <pre className="border p-3 rounded bg-gray-100 overflow-x-auto text-xs">
+                {JSON.stringify(queryPokemon.data, null, 2)}
+              </pre>
+              <button
+                type="button"
+                onClick={() => addPokemon(queryPokemon.data.pokemon)}
+                className="border px-4 py-2 mt-2"
+              >
+                Catch Pokemon
+              </button>
+            </>
           );
         }
         return (

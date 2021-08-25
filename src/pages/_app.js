@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import PokemonStorageProvider from '../components/wrapper/pokemon-storage-context';
 import '../styles/globals.css';
 
 export default function MyApp({ Component, pageProps }) {
@@ -8,7 +9,9 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <PokemonStorageProvider>
+        <Component {...pageProps} />
+      </PokemonStorageProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
   );
