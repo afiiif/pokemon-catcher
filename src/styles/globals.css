@@ -6,4 +6,24 @@
   .shadow-lg-flipped {
     box-shadow: 0 -10px 15px -3px rgba(0,0,0,0.1), 0 -4px 6px -2px rgba(0,0,0,0.05);
   }
+
+  .pokeball {
+    @apply w-24 h-24 relative flex flex-col justify-between before:absolute before:w-8 before:h-8 before:bg-white/10 before:rounded-full before:m-8 gap-y-2;
+  }
+  .pokeball>div:first-child {
+    @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-white/10 before:rounded-full;
+  }
+  .pokeball>div:last-child {
+    @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-white/10 before:rounded-full rotate-180;
+  }
+
+  .pokeball-gray {
+    @apply w-24 h-24 relative flex flex-col justify-between before:absolute before:w-8 before:h-8 before:bg-gray-300/50 before:rounded-full before:m-8 gap-y-2;
+  }
+  .pokeball-gray>div:first-child {
+    @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-gray-300/50 before:rounded-full;
+  }
+  .pokeball-gray>div:last-child {
+    @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-gray-300/50 before:rounded-full rotate-180;
+  }
 }

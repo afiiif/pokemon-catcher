@@ -1,9 +1,10 @@
-import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useInfiniteQuery } from 'react-query';
 import { getPokemons } from '../api/pokemon';
 import DefaultLayout from '../components/layout/default-layout';
 import InfiniteScroll from '../components/layout/infinite-scroll';
+import PokemonCardSkeleton from '../components/section/pokemon-card-skeleton';
+import PokemonCards from '../components/section/pokemon-cards';
 import { checkIfScrolledToBottom } from '../utils/window';
 
 export default function HomePage({ initialPokemons }) {
@@ -22,20 +23,14 @@ export default function HomePage({ initialPokemons }) {
 
   return (
     <DefaultLayout>
-      <InfiniteScroll
-        query={queryPokemons}
-        skeletonOnLoading={<div className="pt-4 pb-20">Loading...</div>}
-        skeletonOnFetching={<div className="pt-4 pb-20">Loading More...</div>}
-      >
-        {pokemons?.map((pokemon) => {
-          const href = `/pokemon/${encodeURIComponent(pokemon.name)}`;
-          return (
-            <Link href={href} key={pokemon.id}>
-              <a className="block border p-3 mb-2 bg-gray-100 hover:bg-gray-300">{pokemon.name}</a>
-            </Link>
-          );
-        })}
-      </InfiniteScroll>
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto">
+        <InfiniteScroll
+          query={queryPokemons}
+          skeletonOnLoading={<PokemonCardSkeleton />}
+        >
+          <PokemonCards pokemons={pokemons} />
+        </InfiniteScroll>
+      </div>
     </DefaultLayout>
   );
 }

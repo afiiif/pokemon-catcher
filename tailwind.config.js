@@ -1,3 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   mode: 'jit',
   purge: [
@@ -6,7 +9,12 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      colors,
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
+    },
   },
   variants: {
     extend: {},

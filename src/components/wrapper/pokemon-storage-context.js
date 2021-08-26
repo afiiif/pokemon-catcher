@@ -18,8 +18,13 @@ export default function PokemonStorageProvider({ children }) {
     setLocalStorage('pokemons', pokemons);
   };
 
-  const addPokemon = (pokemon, name) => {
-    const newPokemon = { pokemon, id: Date.now(), name };
+  const addPokemon = (pokemon, nickname) => {
+    const newPokemon = {
+      id: Date.now(),
+      nickname,
+      name: pokemon.name,
+      types: pokemon.types.map(({ type }) => type.name),
+    };
     updatePokemon([...pokemonStorage, newPokemon]);
   };
 
