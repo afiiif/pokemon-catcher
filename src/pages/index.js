@@ -2,6 +2,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useInfiniteQuery } from 'react-query';
 import { getPokemons } from '../api/pokemon';
+import DefaultLayout from '../components/layout/default-layout';
 import InfiniteScroll from '../components/layout/infinite-scroll';
 import { checkIfScrolledToBottom } from '../utils/window';
 
@@ -20,7 +21,7 @@ export default function HomePage({ initialPokemons }) {
   const pokemons = queryPokemons.data?.pages?.flatMap((page) => page.pokemons.results);
 
   return (
-    <main className="p-6">
+    <DefaultLayout>
       <InfiniteScroll
         query={queryPokemons}
         skeletonOnLoading={<div className="pt-4 pb-20">Loading...</div>}
@@ -35,7 +36,7 @@ export default function HomePage({ initialPokemons }) {
           );
         })}
       </InfiniteScroll>
-    </main>
+    </DefaultLayout>
   );
 }
 

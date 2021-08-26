@@ -2,6 +2,7 @@ import { useRouter } from 'next/dist/client/router';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import { getAllPokemonNames, getPokemon } from '../../api/pokemon';
+import DefaultLayout from '../../components/layout/default-layout';
 import { usePokemonStorage } from '../../components/wrapper/pokemon-storage-context';
 
 export default function PokemonDetailPage({ initialPokemon }) {
@@ -15,7 +16,7 @@ export default function PokemonDetailPage({ initialPokemon }) {
   const { addPokemon } = usePokemonStorage();
 
   return (
-    <main className="p-6">
+    <DefaultLayout>
       <div className="border-b pb-3 mb-3 font-semibold">{query.pokemonName}</div>
       {(() => {
         if (queryPokemon.isIdle || queryPokemon.isLoading) {
@@ -43,7 +44,7 @@ export default function PokemonDetailPage({ initialPokemon }) {
           <div>Error</div>
         );
       })()}
-    </main>
+    </DefaultLayout>
   );
 }
 

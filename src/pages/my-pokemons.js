@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import DefaultLayout from '../components/layout/default-layout';
 import { usePokemonStorage } from '../components/wrapper/pokemon-storage-context';
 
 export default function MyPokemonsPage() {
   const { pokemonStorage } = usePokemonStorage();
 
   return (
-    <main className="p-6">
+    <DefaultLayout title="My Pokémons">
       {pokemonStorage.map(({ id, pokemon }) => {
         const href = `/pokemon/${encodeURIComponent(pokemon.name)}`;
         return (
@@ -14,6 +15,6 @@ export default function MyPokemonsPage() {
           </Link>
         );
       })}
-    </main>
+    </DefaultLayout>
   );
 }
