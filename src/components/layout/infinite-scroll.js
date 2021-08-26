@@ -28,7 +28,7 @@ export default function InfiniteScroll({
     <>
       {children}
       {isFetchingNextPage && (
-        skeletonOnFetching
+        skeletonOnFetching || skeletonOnLoading
       )}
     </>
   );
