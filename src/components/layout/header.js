@@ -11,12 +11,12 @@ export default function Header() {
 
   const MENU = [{
     href: '/',
-    label: 'Explore',
-    icon: 'compass.png',
+    label: 'Pokémons',
+    icon: 'book.png',
     isActive: route === '/' || route.startsWith('/pokemon'),
   }, {
     href: '/my-pokemons',
-    label: 'My Pokémons',
+    label: 'My Bag',
     icon: 'bag.png',
     isActive: route === '/my-pokemons',
     badge: pokemonStorage.length > 99 ? '99+' : pokemonStorage.length,
@@ -28,23 +28,32 @@ export default function Header() {
   }];
 
   return (
-    <div className="h-24">
-      <header className="h-24 bg-white md:shadow-lg absolute md:fixed top-0 inset-x-0">
-        <div className="max-w-7xl mx-auto flex justify-center md:justify-between items-center">
+    <div className="h-28">
+      <header className="h-28 md:h-24 bg-white md:shadow-lg absolute z-50 md:fixed top-0 inset-x-0">
+        <div className="h-full max-w-7xl mx-auto flex justify-center md:justify-between items-center">
           <Link href="/">
             <a className="block w-40 px-4 md:ml-2 text-center">
-              <Image src="/images/pokemon-logo.png" width={320} height={118} layout="responsive" alt="Pokemon Catcher" />
+              <Image
+                src="/images/pokemon-logo.png"
+                width={320}
+                height={118}
+                quality={10}
+                layout="responsive"
+                alt="Pokemon Catcher"
+              />
               <div className="-mt-0.5" />
-              <div className="inline-block px-2.5 py-0.5 tracking-wider font-bold text-sm text-white bg-blue-500 rounded-full">CATCHER</div>
+              <div className="inline-block px-2.5 py-0.5 tracking-wider font-bold text-sm text-white bg-blue-500 rounded-full">
+                CATCHER
+              </div>
             </a>
           </Link>
-          <nav className="fixed bottom-0 inset-x-0 bg-white shadow-lg-flipped md:relative md:bg-transparent md:shadow-none">
+          <nav className="fixed z-50 bottom-0 inset-x-0 bg-white shadow-lg-flipped md:relative md:bg-transparent md:shadow-none">
             <ul className="flex justify-around py-1 px-4 text-gray-500">
               {MENU.map(({ href, label, icon, isActive, badge }) => (
                 <li key={href}>
                   <Link href={href}>
                     <a className="relative block min-w-[106px] p-2 text-center">
-                      {badge && (
+                      {!!badge && (
                         <div className={clsx(
                           'absolute z-10 top-0.5 right-3 md:right-2 text-white text-xs font-bold rounded-full min-w-[24px] h-6 px-2 flex items-center justify-center',
                           isActive ? 'bg-blue-500' : 'bg-gray-500',
