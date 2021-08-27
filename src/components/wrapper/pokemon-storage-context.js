@@ -20,8 +20,9 @@ export default function PokemonStorageProvider({ children }) {
 
   const addPokemon = (pokemon, nickname) => {
     const newPokemon = {
-      id: Date.now(),
       nickname,
+      catchedAt: Date.now(),
+      id: pokemon.id,
       name: pokemon.name,
       types: pokemon.types.map(({ type }) => type.name),
     };

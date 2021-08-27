@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import DefaultLayout from '../components/layout/default-layout';
+import PokemonOwnedCard from '../components/section/pokemon-owned-card';
 import { usePokemonStorage } from '../components/wrapper/pokemon-storage-context';
 
 export default function MyPokemonsPage() {
@@ -7,14 +7,11 @@ export default function MyPokemonsPage() {
 
   return (
     <DefaultLayout title="My Pokémons">
-      {pokemonStorage.map(({ id, name }) => {
-        const href = `/pokemon/${encodeURIComponent(name)}`;
-        return (
-          <Link href={href} key={id}>
-            <a className="block border p-3 mb-2 bg-gray-100 hover:bg-gray-300">{name}</a>
-          </Link>
-        );
-      })}
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {pokemonStorage.map((pokemon) => (
+          <PokemonOwnedCard key={pokemon.catchedAt} pokemon={pokemon} />
+        ))}
+      </div>
     </DefaultLayout>
   );
 }
