@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import { getAllPokemonNames, getPokemon } from '../../api/pokemon';
 import DefaultLayout from '../../components/layout/default-layout';
-import { usePokemonStorage } from '../../components/wrapper/pokemon-storage-context';
+import PokemonDetailBottom from '../../components/section/pokemon-detail/pokemon-detail-bottom';
+import PokemonDetailTop from '../../components/section/pokemon-detail/pokemon-detail-top';
+import { capitalizeFirstLetter } from '../../utils/string';
 
 export default function PokemonDetailPage({ initialPokemon }) {
   const { query } = useRouter();
@@ -13,37 +15,30 @@ export default function PokemonDetailPage({ initialPokemon }) {
     enabled: !!query.pokemonName,
   });
 
-  const { addPokemon } = usePokemonStorage();
+  const pokemon = queryPokemon.data?.pokemon;
 
   return (
-    <DefaultLayout>
-      <div className="border-b pb-3 mb-3 font-semibold">{query.pokemonName}</div>
-      {(() => {
-        if (queryPokemon.isIdle || queryPokemon.isLoading) {
+    <DefaultLayout title={capitalizeFirstLetter(pokemon?.name)}>
+      <div className="max-w-4xl mx-auto">
+        {(() => {
+          if (queryPokemon.isIdle || queryPokemon.isLoading) {
+            return (
+              <div>Loading...</div>
+            );
+          }
+          if (pokemon) {
+            return (
+              <>
+                <PokemonDetailTop pokemon={pokemon} />
+                <PokemonDetailBottom pokemon={pokemon} />
+              </>
+            );
+          }
           return (
-            <div>Loading...</div>
+            <div>Error</div>
           );
-        }
-        if (queryPokemon.data) {
-          return (
-            <>
-              <pre className="border p-3 rounded bg-gray-100 overflow-x-auto text-xs">
-                {JSON.stringify(queryPokemon.data, null, 2)}
-              </pre>
-              <button
-                type="button"
-                onClick={() => addPokemon(queryPokemon.data.pokemon)}
-                className="border px-4 py-2 mt-2"
-              >
-                Catch Pokemon
-              </button>
-            </>
-          );
-        }
-        return (
-          <div>Error</div>
-        );
-      })()}
+        })()}
+      </div>
     </DefaultLayout>
   );
 }
