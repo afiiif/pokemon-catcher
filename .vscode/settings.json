@@ -13,6 +13,12 @@
       "source.fixAll.eslint": true
     }
   },
+  "[css]": {
+    "editor.tabSize": 4
+  },
+  "[scss]": {
+    "editor.tabSize": 4
+  },
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "eslint.format.enable": true,

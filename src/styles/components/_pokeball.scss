@@ -1,23 +1,23 @@
 .pokeball {
-  @apply w-24 h-24 relative flex flex-col justify-between before:absolute before:w-8 before:h-8 before:bg-white/10 before:rounded-full before:m-8 gap-y-2;
+    @apply w-24 h-24 relative flex flex-col justify-between before:absolute before:w-8 before:h-8 before:bg-white/10 before:rounded-full before:m-8 gap-y-2;
 
-  >div:first-child {
-    @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-white/10 before:rounded-full;
-  }
+    >div:first-child {
+        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-white/10 before:rounded-full;
+    }
 
-  >div:last-child {
-    @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-white/10 before:rounded-full rotate-180;
-  }
+    >div:last-child {
+        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-white/10 before:rounded-full rotate-180;
+    }
 }
 
 .pokeball-gray {
-  @apply w-24 h-24 relative flex flex-col justify-between before:absolute before:w-8 before:h-8 before:bg-gray-300/50 before:rounded-full before:m-8 gap-y-2;
+    @apply w-24 h-24 relative flex flex-col justify-between before:absolute before:w-8 before:h-8 before:bg-gray-300/50 before:rounded-full before:m-8 gap-y-2;
 
-  >div:first-child {
-    @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-gray-300/50 before:rounded-full;
-  }
+    >div:first-child {
+        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-gray-300/50 before:rounded-full;
+    }
 
-  >div:last-child {
-    @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-gray-300/50 before:rounded-full rotate-180;
-  }
+    >div:last-child {
+        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-gray-300/50 before:rounded-full rotate-180;
+    }
 }
