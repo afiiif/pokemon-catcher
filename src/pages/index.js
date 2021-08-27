@@ -23,7 +23,7 @@ export default function HomePage({ initialPokemons }) {
 
   return (
     <DefaultLayout>
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <InfiniteScroll
           query={queryPokemons}
           skeletonOnLoading={<PokemonCardSkeleton />}

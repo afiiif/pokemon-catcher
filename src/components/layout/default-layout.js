@@ -11,7 +11,7 @@ export default function DefaultLayout({ title, children }) {
 
       <Header />
 
-      <main className="p-6">
+      <main className="p-6 max-w-7xl mx-auto">
         {children}
       </main>
     </>
