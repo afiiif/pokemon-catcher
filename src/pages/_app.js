@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import PokemonStorageProvider from '../components/wrapper/pokemon-storage-context';
-import '../styles/globals.css';
+import '../styles/index.scss';
 
 export default function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient();
