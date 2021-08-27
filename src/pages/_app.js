@@ -1,3 +1,4 @@
+import NextNProgress from 'nextjs-progressbar';
 import PropTypes from 'prop-types';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -13,6 +14,7 @@ export default function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </PokemonStorageProvider>
       <ReactQueryDevtools />
+      <NextNProgress stopDelayMs={100} />
     </QueryClientProvider>
   );
 }

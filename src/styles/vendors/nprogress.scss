@@ -1,0 +1,24 @@
+#nprogress {
+
+    .bar {
+        background: #3b82f6 !important;
+        z-index: 1100 !important;
+        height: 4px !important;
+    }
+
+    .spinner {
+        z-index: 1100 !important;
+        top: auto !important;
+        bottom: 17px !important;
+        right: 17px !important;
+
+        &-icon {
+            border: solid 3px transparent !important;
+            border-top-color: #3b82f6 !important;
+            border-left-color: #3b82f6 !important;
+            width: 22px !important;
+            height: 22px !important;
+        }
+    }
+
+}

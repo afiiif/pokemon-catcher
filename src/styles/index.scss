@@ -2,6 +2,7 @@
 
 @tailwind components;
 @import 'components/pokeball';
+@import 'vendors/nprogress.scss';
 
 @tailwind utilities;
 @import 'utilities';
