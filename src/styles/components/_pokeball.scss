@@ -34,7 +34,7 @@
     }
 
     &.animated>div:last-child {
-        animation: movePokeballButton infinite 1s linear;
+        animation: movePokeballButton 5 .4s linear;
     }
 
     &.back>div:last-child {
@@ -76,6 +76,176 @@
     }
 }
 
+.pokeball-explosion {
+    @apply absolute rounded-full;
+    animation: pokeballExplosion 0.7s linear;
+    animation-fill-mode: forwards;
+    animation-delay: 2.2s;
+
+    +.pokeball-explosion {
+        animation-delay: 2.4s;
+    }
+}
+
+@keyframes pokeballExplosion {
+    0% {
+        @apply w-16 h-16 opacity-100 border-8 border-yellow-100;
+    }
+
+    100% {
+        @apply w-40 h-40 opacity-0;
+    }
+}
+
 .pokeball-to-catch {
     @apply absolute top-[372px] left-2;
+
+    &.animated {
+        animation: bouncePokeball 2.1s, wigglePokeball 1s 2 2.8s;
+        animation-fill-mode: forwards;
+
+        @media only screen and (min-width: 768px) {
+            animation: bouncePokeball2 2.1s, wigglePokeball2 1s 2 2.8s;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+@keyframes bouncePokeball {
+
+    0% {
+        transform: translateZ(0);
+        left: 8px;
+    }
+
+    24% {
+        animation-timing-function: cubic-bezier(.755, .05, .855, .06);
+        transform: translate3d(0, -385px, 0) scaleY(1.1);
+    }
+
+    40% {
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+        transform: translate3d(0, -150px, 0);
+    }
+
+    60% {
+        animation-timing-function: cubic-bezier(.755, .05, .855, .06);
+        transform: translate3d(0, -280px, 0) scaleY(1.05);
+    }
+
+    74% {
+        transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+        transform: translate3d(0, -150px, 0) scaleY(.95);
+    }
+
+    90% {
+        transform: translate3d(0, -200px, 0) scaleY(1.02);
+    }
+
+    100% {
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+        transform: translate3d(0, -150px, 0);
+        left: calc(40% - 100px);
+    }
+}
+
+@keyframes bouncePokeball2 {
+
+    0% {
+        transform: translateZ(0);
+        left: 8px;
+    }
+
+    24% {
+        animation-timing-function: cubic-bezier(.755, .05, .855, .06);
+        transform: translate3d(0, -385px, 0) scaleY(1.1);
+    }
+
+    40% {
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+        transform: translate3d(0, -80px, 0);
+    }
+
+    60% {
+        animation-timing-function: cubic-bezier(.755, .05, .855, .06);
+        transform: translate3d(0, -280px, 0) scaleY(1.05);
+    }
+
+    74% {
+        transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+        transform: translate3d(0, -80px, 0) scaleY(.95);
+    }
+
+    90% {
+        transform: translate3d(0, -140px, 0) scaleY(1.02);
+    }
+
+    100% {
+        animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+        transform: translate3d(0, -80px, 0);
+        left: calc(60% - 120px);
+    }
+}
+
+@keyframes wigglePokeball {
+    60% {
+        transform: translate3d(0, -150px, 0) rotate(0);
+        transform-origin: center bottom;
+    }
+
+    70% {
+        transform: translate3d(-8px, -150px, 0) rotate(-15deg);
+    }
+
+    80% {
+        transform: translate3d(8px, -150px, 0) rotate(15deg);
+    }
+
+    90% {
+        transform: translate3d(-8px, -150px, 0) rotate(-15deg);
+    }
+
+    100% {
+        transform: translate3d(0, -150px, 0) rotate(0);
+    }
+}
+
+@keyframes wigglePokeball2 {
+    60% {
+        transform: translate3d(0, -80px, 0) rotate(0);
+        transform-origin: center bottom;
+    }
+
+    70% {
+        transform: translate3d(-8px, -80px, 0) rotate(-15deg);
+    }
+
+    80% {
+        transform: translate3d(8px, -80px, 0) rotate(15deg);
+    }
+
+    90% {
+        transform: translate3d(-8px, -80px, 0) rotate(-15deg);
+    }
+
+    100% {
+        transform: translate3d(0, -80px, 0) rotate(0);
+    }
+}
+
+.pokemon-shrinking {
+    animation: shrinkPokemon .6s ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes shrinkPokemon {
+    0% {
+        @apply scale-100 opacity-100;
+    }
+
+    100% {
+        @apply opacity-20;
+        transform: scale(.001);
+        transform-origin: bottom left;
+    }
 }
