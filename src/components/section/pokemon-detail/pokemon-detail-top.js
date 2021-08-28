@@ -1,19 +1,32 @@
+/* eslint-disable no-nested-ternary */
 import clsx from 'clsx';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
 import useCatchPokemon from '../../../hooks/use-catch-pokemon';
 import { capitalizeFirstLetter } from '../../../utils/string';
 import Modal from '../../common/modal';
+import { usePokemonStorage } from '../../wrapper/pokemon-storage-context';
 import PokemonDetailTypes from './pokemon-detail-types';
 
 export default function PokemonDetailTop({ pokemon }) {
   const { id, name, types } = pokemon;
   const artwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
+  const { register, handleSubmit } = useForm();
+
+  const { addPokemon } = usePokemonStorage();
+
   const {
     isThrowingPokeball, isShowPokeballButton,
-    handleThrowPokeball, modalProps,
+    modalProps, closeModal,
+    handleThrowPokeball,
   } = useCatchPokemon();
+
+  const onSubmit = ({ nickname }) => {
+    closeModal();
+    addPokemon(pokemon, nickname);
+  };
 
   return (
     <section className="relative md:pt-4">
@@ -52,7 +65,9 @@ export default function PokemonDetailTop({ pokemon }) {
           disabled={isThrowingPokeball}
         >
           <div className="text-lg pl-4 pr-6">
-            {isThrowingPokeball ? 'Catching...' : 'Catch!'}
+            {isThrowingPokeball
+              ? (modalProps.isOpen ? 'Caught!' : 'Catching...')
+              : 'Catch!'}
           </div>
         </button>
       </div>
@@ -74,7 +89,27 @@ export default function PokemonDetailTop({ pokemon }) {
       <Modal
         {...modalProps}
       >
-        Caught!
+        <div className="text-center">
+          <h2 className="font-bold text-gray-900">{capitalizeFirstLetter(name)} Caught!</h2>
+          <div className="mx-auto max-w-[200px]">
+            <Image
+              src={artwork}
+              alt={name}
+              width={768}
+              height={768}
+              quality={1}
+              className="drop-shadow-md"
+            />
+          </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <label htmlFor="nickname" className="block pb-1">Give a nickname?</label>
+            <input type="text" id="nickname" className="input-text w-52" maxLength="24" {...register('nickname')} />
+            <div className="flex justify-center pt-6 space-x-2">
+              <button type="button" className="btn-secondary w-24" onClick={closeModal}>Release</button>
+              <button type="submit" className="btn-primary w-24">Save</button>
+            </div>
+          </form>
+        </div>
       </Modal>
     </section>
   );

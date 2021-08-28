@@ -41,7 +41,6 @@ export default function useCatchPokemon() {
   return {
     isThrowingPokeball,
     isShowPokeballButton,
-    handleThrowPokeball,
     modalProps: {
       ...modal.props,
       onAfterClose: () => {
@@ -49,5 +48,7 @@ export default function useCatchPokemon() {
         setIsShowPokeballButton(true);
       },
     },
+    closeModal: modal.close,
+    handleThrowPokeball,
   };
 }
