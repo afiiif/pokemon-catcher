@@ -13,8 +13,8 @@ export default function PokemonDetailModal({ pokemon, onSubmit, ...modalProps })
   return (
     <Modal {...modalProps}>
       <div className="text-center">
-        <h2 className="font-bold text-gray-900">{capitalizeFirstLetter(name)} Caught!</h2>
-        <div className="mx-auto max-w-[200px]">
+        <h2 className="font-bold text-gray-900 text-lg">{capitalizeFirstLetter(name)} Caught!</h2>
+        <div className="mx-auto max-w-[200px] py-3">
           <Image
             src={artwork}
             alt={name}
