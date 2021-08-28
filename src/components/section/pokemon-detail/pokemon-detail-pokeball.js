@@ -7,7 +7,7 @@ export default function PokemonDetailPokeball({
 }) {
   return (
     <>
-      <div className="pt-6 flex space-x-4 items-center">
+      <div className="pt-6">
         <button
           type="button"
           className="w-full rounded-full shadow-lg border px-2 py-4 text-center hover:bg-blue-50 md:w-44 md:pl-12 hover:text-blue-500 active:translate-y-1 disabled:pointer-events-none disabled:text-gray-400 md:disabled:w-52"
@@ -18,7 +18,6 @@ export default function PokemonDetailPokeball({
             {buttonLabel}
           </div>
         </button>
-        <div className="flex-1 hidden md:block"><hr className="border-2" /></div>
       </div>
       <div className={clsx('pokeball-to-catch pointer-events-none', isThrowingPokeball && 'animated')}>
         <div className="relative">

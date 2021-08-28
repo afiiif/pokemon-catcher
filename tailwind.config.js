@@ -41,6 +41,9 @@ module.exports = {
         '.link': {
           '@apply text-blue-500 hover:underline': {},
         },
+        '.card': {
+          '@apply bg-white shadow-lg border rounded-2xl p-4 md:p-6 mb-6': {},
+        },
       });
       addUtilities({
         '.shadow-lg-flipped': {
