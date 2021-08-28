@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { FaCheckCircle, FaSignOutAlt } from 'react-icons/fa';
 import PokemonCardContainer from './pokemon-card-container';
 
-export default function PokemonOwnedCard({ pokemon }) {
+export default function PokemonOwnedCard({ pokemon, onClickRelease }) {
   const { types, nickname, catchedAt } = pokemon;
   const catchedAtDistance = formatDistance(new Date(catchedAt), new Date());
   const formattedCatchedAt = format(new Date(catchedAt), 'd MMM yyyy HH:mm');
-
-  const confirmRelease = () => { };
 
   return (
     <PokemonCardContainer
@@ -34,7 +32,7 @@ export default function PokemonOwnedCard({ pokemon }) {
         <button
           type="button"
           className="text-white text-2xl p-2 absolute top-1 right-1 m-px z-30"
-          onClick={confirmRelease}
+          onClick={onClickRelease}
           title="Release"
         >
           <FaSignOutAlt />
@@ -47,4 +45,5 @@ export default function PokemonOwnedCard({ pokemon }) {
 
 PokemonOwnedCard.propTypes = {
   pokemon: PropTypes.object,
+  onClickRelease: PropTypes.func,
 };

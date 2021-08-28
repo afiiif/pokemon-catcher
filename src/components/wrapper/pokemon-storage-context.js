@@ -29,8 +29,8 @@ export default function PokemonStorageProvider({ children }) {
     updatePokemon([...pokemonStorage, newPokemon]);
   };
 
-  const releasePokemon = (id) => {
-    updatePokemon(pokemonStorage.filter((pokemon) => pokemon.id !== id));
+  const releasePokemon = (catchedAt) => {
+    updatePokemon(pokemonStorage.filter((pokemon) => pokemon.catchedAt !== catchedAt));
   };
 
   const releaseAllPokemon = () => {
