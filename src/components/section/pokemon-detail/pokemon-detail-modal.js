@@ -42,7 +42,7 @@ export default function PokemonDetailModal({ pokemon, onSubmit, ...modalProps })
             })}
           />
           {errors.nickname && (
-            <div className="text-red-500">{errors.nickname.message || 'Please enter a nickname'}</div>
+            <div className="text-red-500 text-xs">{errors.nickname.message || 'Please enter a nickname'}</div>
           )}
           <div className="flex justify-center pt-6 space-x-2">
             <button type="button" className="btn-secondary w-24" onClick={modalProps.onRequestClose}>Release</button>
