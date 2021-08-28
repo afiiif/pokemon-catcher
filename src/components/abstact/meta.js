@@ -2,9 +2,9 @@ import Head from 'next/head';
 
 export const AUTHOR = 'Muhammad Afifudin';
 export const SITE_NAME = 'Pokémon Catcher';
-export const DESCRIPTION = 'Pokémon Catcher';
+export const DESCRIPTION = 'Pokémon Catcher is a simple pokemon catching game. You can catch as much as you want. Enjoy!';
 export const KEYWORDS = 'Pokémon, Catcher, Game, Pokeball, Pikachu';
-export const THEME_COLOR = '#ffffff';
+export const THEME_COLOR = '#3b82f6';
 
 export default function Meta() {
   return (
@@ -18,6 +18,7 @@ export default function Meta() {
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:description" content={DESCRIPTION} />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://pokemoncatcher.vercel.app/images/pokemon-catcher-preview.png" />
     </Head>
   );
 }
