@@ -1,11 +1,16 @@
+import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
+import { useModalContext } from '../components/wrapper/modal-context';
 import useModal from './use-modal';
 
 export default function useCatchPokemon() {
   const [isShowPokeballButton, setIsShowPokeballButton] = useState(true);
   const [isThrowingPokeball, setIsThrowingPokeball] = useState();
 
+  const { push } = useRouter();
+
   const modal = useModal();
+  const modalGlobal = useModalContext();
 
   const handleThrowPokeball = () => {
     setIsThrowingPokeball(true);
@@ -38,6 +43,19 @@ export default function useCatchPokemon() {
     };
   }, [isThrowingPokeball]);
 
+  const successNotificationBody = (
+    <>
+      You can see your pokémon on{' '}
+      <button
+        type="button"
+        className="text-blue-500 hover:underline"
+        onClick={() => { push('/my-pokemons'); modalGlobal.close(); }}
+      >My Bag
+      </button>
+      {' '}menu.
+    </>
+  );
+
   return {
     isThrowingPokeball,
     isShowPokeballButton,
@@ -46,6 +64,10 @@ export default function useCatchPokemon() {
       onAfterClose: () => {
         setIsThrowingPokeball(false);
         setIsShowPokeballButton(true);
+        modalGlobal.success(
+          'Pokémon Saved',
+          successNotificationBody,
+        );
       },
     },
     closeModal: modal.close,
