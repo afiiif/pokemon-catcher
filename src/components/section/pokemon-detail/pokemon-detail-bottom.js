@@ -44,6 +44,7 @@ export default function PokemonDetailBottom({ pokemon }) {
         <h2 className="h2 md:pb-2">Base Stats</h2>
         {stats.map(({ stat, base_stat }) => (
           <ListItem
+            key={stat.name}
             label={getStatLabel(stat.name)}
             value={(
               <div className="flex">
