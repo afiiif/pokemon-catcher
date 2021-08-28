@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { getPokemonImage } from '../../../helpers/pokemon';
 
 export default function PokemonCardContainer({
   pokemon,
@@ -10,7 +11,7 @@ export default function PokemonCardContainer({
   const [isImageLoaded, setIsImageLoaded] = useState();
 
   const { id, name, types } = pokemon;
-  const artwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  const artwork = getPokemonImage(id);
   const type = types?.[0];
 
   const bgColor = {

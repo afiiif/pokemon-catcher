@@ -2,6 +2,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
+import { getPokemonImage } from '../../../helpers/pokemon';
 import useCatchPokemon from '../../../hooks/use-catch-pokemon';
 import { capitalizeFirstLetter } from '../../../utils/string';
 import { usePokemonStorage } from '../../wrapper/pokemon-storage-context';
@@ -11,7 +12,7 @@ import PokemonDetailTypes from './pokemon-detail-types';
 
 export default function PokemonDetailTop({ pokemon }) {
   const { id, name, types } = pokemon;
-  const artwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  const artwork = getPokemonImage(id);
 
   const { addPokemon } = usePokemonStorage();
 

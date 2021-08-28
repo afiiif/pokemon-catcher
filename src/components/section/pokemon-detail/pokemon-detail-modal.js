@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
+import { getPokemonImage } from '../../../helpers/pokemon';
 import { capitalizeFirstLetter } from '../../../utils/string';
 import Modal from '../../common/modal';
 
 export default function PokemonDetailModal({ pokemon, onSubmit, ...modalProps }) {
   const { id, name } = pokemon;
-  const artwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  const artwork = getPokemonImage(id);
 
   const { register, handleSubmit } = useForm();
 

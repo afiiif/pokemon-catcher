@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
+import { getPokemonImage } from '../../../helpers/pokemon';
 import { capitalizeFirstLetter } from '../../../utils/string';
 import Modal from '../../common/modal';
 import { useModalContext } from '../../wrapper/modal-context';
@@ -7,7 +8,7 @@ import { usePokemonStorage } from '../../wrapper/pokemon-storage-context';
 
 export default function PokemonReleaseConfirmationModal({ pokemon, ...modalProps }) {
   const { id, name, nickname, catchedAt } = pokemon;
-  const artwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  const artwork = getPokemonImage(id);
 
   const finalName = nickname || capitalizeFirstLetter(name);
 
