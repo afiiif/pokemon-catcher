@@ -1,0 +1,34 @@
+.ReactModal__Overlay {
+    @apply opacity-0 transition-opacity duration-200 z-[1030];
+    @apply bg-blueGray-900/60 #{!important};
+
+    &--after-open {
+        @apply opacity-100;
+    }
+
+    &--before-close {
+        @apply opacity-0;
+    }
+}
+
+
+.ReactModal__Content {
+    @apply opacity-0 transform transition-all duration-200 z-[1040];
+    @apply m-auto inset-x-0 p-4 overflow-visible #{!important};
+    width: calc(100% - 24px) !important;
+    bottom: unset !important;
+    max-width: 360px;
+    border-radius: 12px !important;
+    top: calc(50% - 96px) !important;
+    transform: translateY(-50%);
+
+    &--after-open {
+        @apply opacity-100;
+        top: calc(50% - 64px) !important;
+    }
+
+    &--before-close {
+        @apply opacity-0;
+        top: calc(50% - 96px) !important;
+    }
+}
