@@ -26,6 +26,29 @@ export default function useCatchPokemon() {
     setIsShowPokeballButton(true);
   };
 
+  const successNotificationBody = (
+    <>
+      You can see your pokémon on{' '}
+      <button
+        type="button"
+        className="link"
+        onClick={() => { push('/my-pokemons'); modalGlobal.close(); }}
+      >My Bag
+      </button>
+      {' '}menu.
+    </>
+  );
+
+  const closeModal = (isSaved) => {
+    modal.close();
+    if (isSaved) {
+      modalGlobal.success(
+        'Pokémon Saved',
+        successNotificationBody,
+      );
+    }
+  };
+
   useEffect(() => {
     let timeoutSpin;
     let timeoutThrow;
@@ -43,19 +66,6 @@ export default function useCatchPokemon() {
     };
   }, [isThrowingPokeball]);
 
-  const successNotificationBody = (
-    <>
-      You can see your pokémon on{' '}
-      <button
-        type="button"
-        className="link"
-        onClick={() => { push('/my-pokemons'); modalGlobal.close(); }}
-      >My Bag
-      </button>
-      {' '}menu.
-    </>
-  );
-
   return {
     isThrowingPokeball,
     isShowPokeballButton,
@@ -64,13 +74,9 @@ export default function useCatchPokemon() {
       onAfterClose: () => {
         setIsThrowingPokeball(false);
         setIsShowPokeballButton(true);
-        modalGlobal.success(
-          'Pokémon Saved',
-          successNotificationBody,
-        );
       },
     },
-    closeModal: modal.close,
+    closeModal,
     handleThrowPokeball,
   };
 }

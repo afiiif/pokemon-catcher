@@ -23,7 +23,7 @@ export default function PokemonDetailTop({ pokemon }) {
   } = useCatchPokemon();
 
   const onSubmit = ({ nickname }) => {
-    closeModal();
+    closeModal(true);
     addPokemon(pokemon, nickname);
   };
 
