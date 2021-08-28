@@ -3,8 +3,8 @@ import { useInfiniteQuery } from 'react-query';
 import { getPokemons } from '../api/pokemon';
 import DefaultLayout from '../components/layout/default-layout';
 import InfiniteScroll from '../components/layout/infinite-scroll';
-import PokemonCardSkeleton from '../components/section/pokemon-card-skeleton';
-import PokemonCards from '../components/section/pokemon-cards';
+import PokemonCardSkeleton from '../components/section/pokemon-card/pokemon-card-skeleton';
+import PokemonCards from '../components/section/pokemon-card/pokemon-cards';
 import { checkIfScrolledToBottom } from '../utils/window';
 
 export default function HomePage({ initialPokemons }) {

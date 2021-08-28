@@ -1,5 +1,5 @@
 import DefaultLayout from '../components/layout/default-layout';
-import PokemonOwnedCard from '../components/section/pokemon-owned-card';
+import PokemonOwnedCard from '../components/section/pokemon-card/pokemon-owned-card';
 import { usePokemonStorage } from '../components/wrapper/pokemon-storage-context';
 
 export default function MyPokemonsPage() {

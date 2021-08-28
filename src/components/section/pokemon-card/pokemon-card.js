@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { usePokemonStorage } from '../wrapper/pokemon-storage-context';
+import { usePokemonStorage } from '../../wrapper/pokemon-storage-context';
 import PokemonCardContainer from './pokemon-card-container';
 
 export default function PokemonCard({ pokemon }) {
