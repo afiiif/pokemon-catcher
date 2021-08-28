@@ -32,6 +32,9 @@ module.exports = {
         '.btn-secondary': {
           '@apply rounded focus:outline-none focus:ring-2 px-3 py-2 font-semibold text-white bg-gray-900': {},
         },
+        '.link': {
+          '@apply text-blue-500 hover:underline': {},
+        },
       });
       addUtilities({
         '.shadow-lg-flipped': {

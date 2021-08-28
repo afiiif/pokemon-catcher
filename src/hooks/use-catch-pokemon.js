@@ -48,7 +48,7 @@ export default function useCatchPokemon() {
       You can see your pokémon on{' '}
       <button
         type="button"
-        className="text-blue-500 hover:underline"
+        className="link"
         onClick={() => { push('/my-pokemons'); modalGlobal.close(); }}
       >My Bag
       </button>
