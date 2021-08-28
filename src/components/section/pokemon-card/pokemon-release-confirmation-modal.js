@@ -18,7 +18,7 @@ export default function PokemonReleaseConfirmationModal({ pokemon, ...modalProps
   const onRelease = () => {
     releasePokemon(catchedAt);
     modalProps.onRequestClose();
-    info('Pokémon Released', `${name} has been released.`);
+    info('Pokémon Released', `${finalName} has been released.`);
   };
 
   return (
