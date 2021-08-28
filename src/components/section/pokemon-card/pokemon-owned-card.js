@@ -1,10 +1,11 @@
 import { format, formatDistance } from 'date-fns';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { FaCheckCircle, FaSignOutAlt } from 'react-icons/fa';
+import { FaCheckCircle, FaInfoCircle, FaSignOutAlt } from 'react-icons/fa';
 import PokemonCardContainer from './pokemon-card-container';
 
 export default function PokemonOwnedCard({ pokemon, onClickRelease }) {
-  const { types, nickname, catchedAt } = pokemon;
+  const { name, types, nickname, catchedAt } = pokemon;
   const catchedAtDistance = formatDistance(new Date(catchedAt), new Date());
   const formattedCatchedAt = format(new Date(catchedAt), 'd MMM yyyy HH:mm');
 
@@ -13,8 +14,13 @@ export default function PokemonOwnedCard({ pokemon, onClickRelease }) {
       pokemon={pokemon}
       className="h-56"
       header={(
-        <div className="h-12 mx-4 border-b flex items-center">
-          <div className="border-white text-white truncate pr-8">{nickname}</div>
+        <div className="h-12 mx-4 border-b flex items-center pr-7">
+          <div className="border-white text-white truncate flex-1">{nickname}</div>
+          <Link href={`/pokemon/${name}`}>
+            <a className="text-white text-xl p-2" title="View Pokémon Detail">
+              <FaInfoCircle />
+            </a>
+          </Link>
         </div>
       )}
     >
@@ -31,7 +37,7 @@ export default function PokemonOwnedCard({ pokemon, onClickRelease }) {
       <div className="group">
         <button
           type="button"
-          className="text-white text-2xl p-2 absolute top-1 right-1 m-px z-30"
+          className="text-white text-xl p-2 absolute top-1.5 right-1.5 z-30"
           onClick={onClickRelease}
           title="Release"
         >
