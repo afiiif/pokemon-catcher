@@ -2,11 +2,11 @@
     @apply w-24 h-24 relative flex flex-col justify-between before:absolute before:w-8 before:h-8 before:bg-white/10 before:rounded-full before:m-8 gap-y-2;
 
     >div:first-child {
-        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-white/10 before:rounded-full;
+        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-#{[24px]} before:border-white/10 before:rounded-full;
     }
 
     >div:last-child {
-        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-white/10 before:rounded-full rotate-180;
+        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-#{[24px]} before:border-white/10 before:rounded-full rotate-180;
     }
 }
 
@@ -14,11 +14,11 @@
     @apply w-24 h-24 relative flex flex-col justify-between before:absolute before:w-8 before:h-8 before:bg-gray-300/50 before:rounded-full before:m-8 gap-y-2;
 
     >div:first-child {
-        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-gray-300/50 before:rounded-full;
+        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-#{[24px]} before:border-gray-300/50 before:rounded-full;
     }
 
     >div:last-child {
-        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-[24px] before:border-gray-300/50 before:rounded-full rotate-180;
+        @apply h-full relative overflow-hidden before:absolute before:w-24 before:h-24 before:border-#{[24px]} before:border-gray-300/50 before:rounded-full rotate-180;
     }
 }
 
@@ -26,11 +26,11 @@
     @apply relative flex justify-center w-24 h-24 rounded-full bg-gradient-to-tr from-gray-50 to-white shadow-md border overflow-hidden;
 
     >div:first-child {
-        @apply absolute -top-2 w-36 h-[67px] rounded-[100%] bg-gradient-to-tr from-red-400 to-red-500 border-4 border-gray-800;
+        @apply absolute -top-2 w-36 h-#{[67px]} rounded-#{[100%]} bg-gradient-to-tr from-red-400 to-red-500 border-4 border-gray-800;
     }
 
     >div:last-child {
-        @apply absolute w-6 h-6 mt-[45px] ml-0 bg-white rounded-[100%] border-4 border-gray-800;
+        @apply absolute w-6 h-6 mt-#{[45px]} ml-0 bg-white rounded-#{[100%]} border-4 border-gray-800;
     }
 
     &.animated>div:last-child {
@@ -44,35 +44,35 @@
 
 @keyframes movePokeballButton {
     0% {
-        @apply mt-[45px] ml-0 w-6;
+        @apply mt-#{[45px]} ml-0 w-6;
     }
 
-    12.5% {
-        @apply mt-[41px] ml-16 w-[21px];
+    13% {
+        @apply mt-#{[41px]} -ml-16 w-#{[21px]};
     }
 
     25% {
-        @apply mt-[34px] ml-32 w-4;
+        @apply mt-#{[34px]} -ml-32 w-4;
     }
 
     40% {
-        @apply -mt-8 ml-32 w-6;
-    }
-
-    60% {
         @apply -mt-8 -ml-32 w-6;
     }
 
-    75% {
-        @apply mt-[34px] -ml-32 w-4;
+    60% {
+        @apply -mt-8 ml-32 w-6;
     }
 
-    87.5% {
-        @apply mt-[41px] -ml-16 w-[21px];
+    75% {
+        @apply mt-#{[34px]} ml-32 w-4;
+    }
+
+    87% {
+        @apply mt-#{[41px]} ml-16 w-#{[21px]};
     }
 
     100% {
-        @apply mt-[45px] ml-0 w-6;
+        @apply mt-#{[45px]} ml-0 w-6;
     }
 }
 
@@ -98,7 +98,7 @@
 }
 
 .pokeball-to-catch {
-    @apply absolute top-[372px] left-2;
+    @apply absolute top-#{[372px]} left-2;
 
     &.animated {
         animation: bouncePokeball 2.1s, wigglePokeball 1s 2 2.8s;
