@@ -238,6 +238,13 @@
     animation-fill-mode: forwards;
 }
 
+.pokemon-get-out {
+    @apply opacity-20;
+    transform: scale(.001);
+    animation: shrinkPokemon reverse .6s ease-in;
+    animation-fill-mode: forwards;
+}
+
 @keyframes shrinkPokemon {
     0% {
         @apply scale-100 opacity-100;
