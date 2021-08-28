@@ -3,4 +3,8 @@ module.exports = {
   images: {
     domains: ['raw.githubusercontent.com'],
   },
+  i18n: {
+    locales: ['en-US'],
+    defaultLocale: 'en-US',
+  },
 };
