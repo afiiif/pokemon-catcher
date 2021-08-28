@@ -2,6 +2,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { getPokemonImage } from '../../../helpers/pokemon';
 import useCatchPokemon from '../../../hooks/use-catch-pokemon';
 import { capitalizeFirstLetter } from '../../../utils/string';
@@ -16,6 +17,8 @@ export default function PokemonDetailTop({ pokemon }) {
 
   const { addPokemon } = usePokemonStorage();
 
+  const [key, setKey] = useState();
+
   const {
     isThrowingPokeball, isShowPokeballButton,
     modalProps, closeModal,
@@ -25,6 +28,7 @@ export default function PokemonDetailTop({ pokemon }) {
   const onSubmit = ({ nickname }) => {
     closeModal(true);
     addPokemon(pokemon, nickname);
+    setKey(Date.now());
   };
 
   return (
@@ -65,6 +69,7 @@ export default function PokemonDetailTop({ pokemon }) {
         isShowPokeballButton={isShowPokeballButton}
       />
       <PokemonDetailModal
+        key={key} // Key to reset form
         pokemon={pokemon}
         onSubmit={onSubmit}
         {...modalProps}

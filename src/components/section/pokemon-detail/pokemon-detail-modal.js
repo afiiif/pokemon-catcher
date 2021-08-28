@@ -4,12 +4,16 @@ import { useForm } from 'react-hook-form';
 import { getPokemonImage } from '../../../helpers/pokemon';
 import { capitalizeFirstLetter } from '../../../utils/string';
 import Modal from '../../common/modal';
+import { usePokemonStorage } from '../../wrapper/pokemon-storage-context';
 
 export default function PokemonDetailModal({ pokemon, onSubmit, ...modalProps }) {
   const { id, name } = pokemon;
   const artwork = getPokemonImage(id);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const { pokemonStorage } = usePokemonStorage();
+  const pokemonNicknames = pokemonStorage.map(({ nickname }) => nickname.toLowerCase());
 
   return (
     <Modal {...modalProps}>
@@ -26,8 +30,20 @@ export default function PokemonDetailModal({ pokemon, onSubmit, ...modalProps })
           />
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="nickname" className="block pb-1">Give a nickname?</label>
-          <input type="text" id="nickname" className="input-text w-52" maxLength="24" {...register('nickname')} />
+          <label htmlFor="nickname" className="block pb-1">Give a nickname:</label>
+          <input
+            type="text"
+            id="nickname"
+            className="input-text w-52"
+            maxLength="24"
+            {...register('nickname', {
+              required: true,
+              validate: (v) => !pokemonNicknames.includes(v.toLowerCase()) || `${v} already exist, use other nickname`,
+            })}
+          />
+          {errors.nickname && (
+            <div className="text-red-500">{errors.nickname.message || 'Please enter a nickname'}</div>
+          )}
           <div className="flex justify-center pt-6 space-x-2">
             <button type="button" className="btn-secondary w-24" onClick={modalProps.onRequestClose}>Release</button>
             <button type="submit" className="btn-primary w-24">Save</button>
