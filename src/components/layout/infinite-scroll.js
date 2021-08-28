@@ -18,7 +18,7 @@ export default function InfiniteScroll({
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isFetchingNextPage]);
+  }, []);
 
   if (isLoading) {
     return skeletonOnLoading;
