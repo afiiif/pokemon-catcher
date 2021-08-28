@@ -52,7 +52,7 @@ export default function PokemonDetailTop({ pokemon }) {
           />
         </div>
         <div>
-          <h1 className="text-3xl md:text-6xl font-bold text-gray-900 text-center md:text-left md:pt-4">
+          <h1 className="h1">
             {capitalizeFirstLetter(pokemon.name)}
           </h1>
           <div className="flex justify-center md:justify-start pt-3 md:pt-6">

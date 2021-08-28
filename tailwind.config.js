@@ -32,6 +32,12 @@ module.exports = {
         '.btn-secondary': {
           '@apply rounded focus:outline-none focus:ring-2 px-3 py-2 font-semibold text-white bg-gray-900': {},
         },
+        '.h1': {
+          '@apply text-3xl md:text-6xl font-bold text-gray-900 text-center md:text-left md:pt-4': {},
+        },
+        '.h2': {
+          '@apply text-xl md:text-3xl font-bold text-gray-900': {},
+        },
         '.link': {
           '@apply text-blue-500 hover:underline': {},
         },

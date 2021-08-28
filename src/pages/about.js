@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <DefaultLayout title="About">
 
-      <h1 className="text-3xl md:text-6xl font-bold text-gray-900 text-center md:text-left md:pt-4">
+      <h1 className="h1">
         About
       </h1>
       <div className="md:text-xl max-w-3xl pt-8 text-gray-700">
@@ -20,7 +20,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <h2 className="text-xl md:text-3xl font-bold text-gray-900 pt-8">
+      <h2 className="h2 pt-8">
         Tech-Stack
       </h2>
       <div className="md:text-xl max-w-3xl pt-2 md:pt-4 text-gray-700">
@@ -32,14 +32,14 @@ export default function AboutPage() {
         </ul>
       </div>
 
-      <h2 className="text-xl md:text-3xl font-bold text-gray-900 pt-8">
+      <h2 className="h2 pt-8">
         Github
       </h2>
       <div className="md:text-xl max-w-3xl pt-2 md:pt-4 text-gray-700">
         <a className="link" href="https://github.com/afiiif/pokemon-catcher">https://github.com/afiiif/pokemon-catcher</a>
       </div>
 
-      <h2 className="text-xl md:text-3xl font-bold text-gray-900 pt-8">
+      <h2 className="h2 pt-8">
         Author
       </h2>
       <div className="md:text-xl max-w-3xl pt-2 md:pt-4 text-gray-700">
