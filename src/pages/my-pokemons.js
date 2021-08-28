@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import DefaultLayout from '../components/layout/default-layout';
 import PokemonOwnedCard from '../components/section/pokemon-card/pokemon-owned-card';
 import PokemonReleaseConfirmationModal from '../components/section/pokemon-card/pokemon-release-confirmation-modal';
@@ -11,19 +12,37 @@ export default function MyPokemonsPage() {
 
   return (
     <DefaultLayout title="My Pokémons">
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {pokemonStorage.map((pokemon) => (
-          <PokemonOwnedCard
-            key={pokemon.catchedAt}
-            pokemon={pokemon}
-            onClickRelease={() => modal.open(pokemon)}
-          />
-        ))}
-      </div>
-      <PokemonReleaseConfirmationModal
-        {...modal.props}
-        pokemon={modal.data}
-      />
+      {pokemonStorage.length
+        ? (
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {pokemonStorage.map((pokemon) => (
+              <PokemonOwnedCard
+                key={pokemon.catchedAt}
+                pokemon={pokemon}
+                onClickRelease={() => modal.open(pokemon)}
+              />
+            ))}
+            <PokemonReleaseConfirmationModal
+              {...modal.props}
+              pokemon={modal.data}
+            />
+          </div>
+        )
+        : (
+          <div className="flex h-96 my-12 md:my-24">
+            <div className="m-auto">
+              <div className="pokeball-gray scale-[180%] mx-auto m-16">
+                <div /><div />
+              </div>
+              <div className="text-center">
+                <p className="text-gray-600">You don't have any pokémon yet.</p>
+                <Link href="/">
+                  <a className="inline-block btn-primary mt-6">Explore Pokémon</a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
     </DefaultLayout>
   );
 }
