@@ -5,6 +5,7 @@ import DefaultLayout from '../components/layout/default-layout';
 import InfiniteScroll from '../components/layout/infinite-scroll';
 import PokemonCardSkeleton from '../components/section/pokemon-card/pokemon-card-skeleton';
 import PokemonCards from '../components/section/pokemon-card/pokemon-cards';
+import { NEXTJS_STATIC_PROPS_REVALIDATE } from '../constants/config';
 import { checkIfScrolledToBottom } from '../utils/window';
 
 export default function HomePage({ initialPokemons }) {
@@ -44,6 +45,6 @@ export async function getStaticProps() {
     props: {
       initialPokemons: await getPokemons(),
     },
-    revalidate: 10,
+    revalidate: NEXTJS_STATIC_PROPS_REVALIDATE,
   };
 }

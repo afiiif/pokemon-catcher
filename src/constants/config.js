@@ -1,0 +1,1 @@
+export const NEXTJS_STATIC_PROPS_REVALIDATE = 60;
