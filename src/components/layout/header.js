@@ -42,7 +42,7 @@ export default function Header() {
                 alt="Pokemon Catcher"
               />
               <div className="-mt-0.5" />
-              <div className="inline-block px-2.5 py-0.5 tracking-wider font-bold text-sm text-white bg-blue-500 rounded-full">
+              <div className="inline-block px-2.5 py-0.5 tracking-wider font-bold text-sm text-white bg-rose-500 rounded-full">
                 CATCHER
               </div>
             </a>
@@ -56,7 +56,7 @@ export default function Header() {
                       {!!badge && (
                         <div className={clsx(
                           'absolute z-10 top-0.5 right-3 md:right-2 text-white text-xs font-bold rounded-full min-w-[24px] h-6 px-2 flex items-center justify-center',
-                          isActive ? 'bg-blue-500' : 'bg-gray-500',
+                          isActive ? 'bg-rose-500' : 'bg-gray-500',
                         )}
                         >
                           {badge}
@@ -71,7 +71,7 @@ export default function Header() {
                           alt={label}
                         />
                       </div>
-                      <div className={clsx('text-xs md:text-sm', isActive && 'text-blue-500')}>{label}</div>
+                      <div className={clsx('font-semibold text-xs md:text-sm', isActive && 'text-rose-500')}>{label}</div>
                     </a>
                   </Link>
                 </li>

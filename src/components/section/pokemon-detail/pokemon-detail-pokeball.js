@@ -10,7 +10,7 @@ export default function PokemonDetailPokeball({
       <div className="pt-6">
         <button
           type="button"
-          className="w-full rounded-full shadow-lg border px-2 py-4 text-center hover:bg-blue-50 md:w-44 md:pl-12 hover:text-blue-500 active:translate-y-1 disabled:pointer-events-none disabled:text-gray-400 md:disabled:w-52"
+          className="w-full rounded-full shadow-lg border px-2 py-4 text-center hover:bg-rose-50 md:w-44 md:pl-12 hover:text-rose-500 active:translate-y-1 disabled:pointer-events-none disabled:text-gray-400 md:disabled:w-52"
           onClick={handleThrowPokeball}
           disabled={isThrowingPokeball}
         >

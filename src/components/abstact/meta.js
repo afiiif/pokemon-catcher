@@ -4,7 +4,7 @@ export const AUTHOR = 'Muhammad Afifudin';
 export const SITE_NAME = 'Pokémon Catcher';
 export const DESCRIPTION = 'Pokémon Catcher is a simple pokemon catching game. You can catch as much as you want. Enjoy!';
 export const KEYWORDS = 'Pokémon, Catcher, Game, Pokeball, Pikachu';
-export const THEME_COLOR = '#3b82f6';
+export const THEME_COLOR = '#f43f5e';
 
 export default function Meta() {
   return (

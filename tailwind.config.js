@@ -24,13 +24,13 @@ module.exports = {
     plugin(({ addComponents, addUtilities }) => {
       addComponents({
         '.input-text': {
-          '@apply border border-blue-500 rounded focus:outline-none focus:ring-2 px-3 py-1': {},
+          '@apply border border-rose-500 rounded focus:outline-none focus:ring-2 ring-rose-500/50 px-3 py-1': {},
         },
         '.btn-primary': {
-          '@apply rounded focus:outline-none focus:ring-2 px-3 py-2 font-semibold text-white bg-blue-500': {},
+          '@apply rounded focus:outline-none focus:ring-2 ring-rose-500/50 px-3 py-2.5 font-semibold text-white bg-rose-500': {},
         },
         '.btn-secondary': {
-          '@apply rounded focus:outline-none focus:ring-2 px-3 py-2 font-semibold text-white bg-gray-900': {},
+          '@apply rounded focus:outline-none focus:ring-2 ring-rose-500/50 px-3 py-2.5 font-semibold text-white bg-gray-900': {},
         },
         '.h1': {
           '@apply text-3xl md:text-6xl font-bold text-gray-900 text-center md:text-left md:pt-4': {},
@@ -39,7 +39,7 @@ module.exports = {
           '@apply text-xl md:text-3xl font-bold text-gray-900': {},
         },
         '.link': {
-          '@apply text-blue-500 hover:underline': {},
+          '@apply text-rose-500 hover:underline': {},
         },
         '.card': {
           '@apply bg-white shadow-lg border rounded-2xl p-4 md:p-6 mb-6': {},
