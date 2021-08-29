@@ -12,23 +12,54 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `/src/pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Script
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- `yarn dev` - Run development server
+- `yarn build` - Build the application for production
+- `yarn start` - Start a Next.js production server (require `yarn build` first)
+- `yarn lint` - Run [ESLint](https://eslint.org/)
+- `yarn lint:fix` - Fix codes from ESLint errors
 
-## Learn More
+## Tech-Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Global State Management**: [React Context](https://github.com/pmndrs/zustand/)
+- **Server State Management**: [React Query](https://react-query.tanstack.com/)
+- **Form Handling**: [React Hook Form](https://react-hook-form.com/)
+- **Date & Time Utility**: [date-fns](https://date-fns.org/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## File Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```raw
+.
+├── 📂 .vscode/               VSCode settings, snippets, and extension recommendation
+├── 📂 public/                Public files (e.g. favicon)
+├── 📂 src/
+│   ├── 📂 api/               API-related utility functions
+│   ├── ⚛️ components/
+│   │   ├── 📂 abstract/      Components that didn't affect UI
+│   │   ├── 📂 common/        Common components
+│   │   ├── 📂 hoc/           Higher-Order Components
+│   │   ├── 📂 layout/        Components which has specific location in a page and cannot just be placed anywhere (e.g. header, sidebar, footer)
+│   │   ├── 📂 section/       Components which create a block/section/sub-section of a page, and has specific implementation
+│   │   └── 📂 wrapper/       Components which has no UI, only for functionality (e.g. context-provider)
+│   ├── 📂 graphql/           GraphQL template literal tags
+│   ├── 📂 helpers/           Helpers functions
+│   ├── ⚛️ hooks/             Custom hooks
+│   ├── ⚛️ pages/             Next.js page components
+│   ├── 📂 styles/
+│   │   ├── 📂 components/    CSS files for components (e.g. button, table)
+│   │   ├── 📂 vendors/       CSS files for modifying external component library's style (e.g. react-select, react-modal)
+│   │   └── index.css         Contains @import statements to merge all CSS files
+│   └── 📂 utils/             Utility functions
+├── .eslintignore
+├── .eslintrc.js              ESLint configuration
+├── .gitattributes
+├── .gitignore
+├── next.config.js            Next.js configuration
+├── package.json
+├── postcss.config.js         PostCSS configuration
+└── tailwind.config.js        Tailwind configuration
+```
