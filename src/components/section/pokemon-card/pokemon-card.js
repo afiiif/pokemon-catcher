@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { usePokemonStorage } from '../../wrapper/pokemon-storage-context';
 import PokemonCardContainer from './pokemon-card-container';
 
-export default function PokemonCard({ pokemon }) {
+export default function PokemonCard({ pokemon, small }) {
   const { pokemonStorage } = usePokemonStorage();
   const ownedPokemons = pokemonStorage.filter((item) => item.id === pokemon.id);
   const isOwned = ownedPokemons.length > 0;
@@ -12,6 +12,7 @@ export default function PokemonCard({ pokemon }) {
     <PokemonCardContainer
       pokemon={mergedPokemonData}
       className="h-44 group"
+      small={small}
     >
       <div className="h-full flex flex-col justify-between items-start">
         <div>
@@ -37,4 +38,5 @@ export default function PokemonCard({ pokemon }) {
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.object,
+  small: PropTypes.bool,
 };

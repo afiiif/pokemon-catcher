@@ -7,6 +7,7 @@ import { getPokemonImage } from '../../../helpers/pokemon';
 export default function PokemonCardContainer({
   pokemon,
   className, header, children,
+  small,
 }) {
   const [isImageLoaded, setIsImageLoaded] = useState();
 
@@ -35,9 +36,33 @@ export default function PokemonCardContainer({
     fairy: 'bg-[#ff76ab]',
   }[type] || 'bg-gray-200';
 
+  if (small) {
+    return (
+      <div className={clsx('rounded-2xl relative overflow-hidden', bgColor, '!h-28')}>
+        <div className="absolute scale-[120%] -right-2 -bottom-2">
+          <div className={clsx(type ? 'pokeball' : 'pokeball-gray', !isImageLoaded && 'animate-spin-slow')}>
+            <div /><div />
+          </div>
+        </div>
+        <div className={clsx('p-1.5 pt-4 text-center', type ? 'text-white' : 'text-gray-800')}>
+          <Image
+            src={artwork}
+            alt={name}
+            width={64}
+            height={64}
+            quality={1}
+            onLoadingComplete={() => setIsImageLoaded(true)}
+            className="drop-shadow-md"
+          />
+          <h2 className="font-bold text-xs capitalize relative z-10">{name}</h2>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={clsx('rounded-2xl relative overflow-hidden', bgColor, className)}>
-      <div className="absolute bottom-2 right-2 scale-[170%]">
+      <div className="absolute scale-[170%] bottom-2 right-2">
         <div className={clsx(type ? 'pokeball' : 'pokeball-gray', !isImageLoaded && 'animate-spin-slow')}>
           <div /><div />
         </div>
@@ -69,4 +94,5 @@ PokemonCardContainer.propTypes = {
   className: PropTypes.string,
   header: PropTypes.node,
   children: PropTypes.node,
+  small: PropTypes.bool,
 };
