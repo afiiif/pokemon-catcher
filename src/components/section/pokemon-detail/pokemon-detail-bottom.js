@@ -50,7 +50,7 @@ export default function PokemonDetailBottom({ pokemon }) {
               <div className="flex">
                 <div className="w-10">{base_stat}</div>
                 <div className="flex-1 bg-gray-200 h-2 mt-3 rounded-full overflow-hidden">
-                  <div className="bg-green-500 h-full" style={{ width: `${base_stat / 2.55}%` }} />
+                  <div className="bg-green-500 h-full" style={{ width: `${base_stat / 2}%` }} />
                 </div>
               </div>
             )}
@@ -61,7 +61,7 @@ export default function PokemonDetailBottom({ pokemon }) {
         <h2 className="h2 md:pb-2">Moves</h2>
         <div className="flex flex-wrap -m-1 pt-2">
           {moves.map(({ move }) => (
-            <div key={move.name} className="border border-gray-500 rounded-full px-2.5 py-1 m-1">
+            <div key={move.name} className="border border-gray-500 text-gray-700 rounded-full px-2.5 py-1 m-1">
               {move.name}
             </div>
           ))}
