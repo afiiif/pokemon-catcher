@@ -1,0 +1,51 @@
+.pokemon-card-container {
+    @apply grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+
+    .pokemon-card {
+        @apply rounded-2xl relative overflow-hidden;
+
+        &-pokeball {
+            @apply absolute scale-[170%] bottom-2 right-2;
+        }
+
+        &-content {
+            @apply p-4;
+        }
+
+        &-heading {
+            @apply font-bold text-xl capitalize relative z-10;
+        }
+
+        &-body {
+            @apply pt-6;
+        }
+    }
+
+    &.pokemon-card-container-compact {
+        @apply gap-2 grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8;
+
+        .pokemon-card {
+            @apply h-28 #{!important};
+
+            &-pokeball {
+                @apply scale-[120%] -right-2 -bottom-2;
+            }
+
+            &-content {
+                @apply flex flex-col-reverse items-center p-1.5 pt-7;
+            }
+
+            &-heading {
+                @apply text-xs pt-1.5;
+            }
+
+            &-body {
+                @apply hidden;
+            }
+
+            &-body+div {
+                @apply w-16;
+            }
+        }
+    }
+}

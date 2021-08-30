@@ -59,19 +59,12 @@ export default function HomePage({ initialPokemons }) {
           <FaTh />
         </button>
       </div>
-      <div
-        className={clsx(
-          'grid',
-          isCompact
-            ? 'gap-2 grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8'
-            : 'gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
-        )}
-      >
+      <div className={clsx('pokemon-card-container', isCompact && 'pokemon-card-container-compact')}>
         <InfiniteScroll
           query={queryPokemons}
-          skeletonOnLoading={<PokemonCardSkeleton isCompact={isCompact} />}
+          skeletonOnLoading={<PokemonCardSkeleton />}
         >
-          <PokemonCards pokemons={pokemons} small={isCompact} />
+          <PokemonCards pokemons={pokemons} />
         </InfiniteScroll>
       </div>
     </DefaultLayout>

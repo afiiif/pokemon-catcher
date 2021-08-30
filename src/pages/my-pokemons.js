@@ -14,7 +14,7 @@ export default function MyPokemonsPage() {
     <DefaultLayout title="My Pokémons">
       {pokemonStorage.length
         ? (
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="pokemon-card-container">
             {pokemonStorage.map((pokemon) => (
               <PokemonOwnedCard
                 key={pokemon.catchedAt}
