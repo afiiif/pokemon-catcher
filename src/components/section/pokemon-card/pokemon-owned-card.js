@@ -21,29 +21,25 @@ export default function PokemonOwnedCard({ pokemon, onClickRelease }) {
               <FaInfoCircle />
             </a>
           </Link>
+          <div className="group">
+            <button
+              type="button"
+              className="text-white text-xl p-2 absolute top-1.5 right-1.5 z-30"
+              onClick={onClickRelease}
+              title="Release"
+            >
+              <FaSignOutAlt />
+            </button>
+            <div className="pointer-events-none absolute inset-0 z-20 bg-black transition-opacity opacity-0 group-hover:opacity-20" />
+          </div>
         </div>
       )}
     >
-      <div className="h-full flex flex-col justify-between items-start">
-        <div>
-          <div className="font-semibold">Type:</div>
-          <div className="capitalize">{types?.join(', ') || '-'}</div>
-        </div>
-        <div className="flex items-center text-xs text-white/80 -mr-28">
-          <FaCheckCircle className="mr-px" />
-          <div className="pl-1.5 first-letter:uppercase whitespace-nowrap" title={formattedCatchedAt}>{catchedAtDistance} ago</div>
-        </div>
-      </div>
-      <div className="group">
-        <button
-          type="button"
-          className="text-white text-xl p-2 absolute top-1.5 right-1.5 z-30"
-          onClick={onClickRelease}
-          title="Release"
-        >
-          <FaSignOutAlt />
-        </button>
-        <div className="pointer-events-none absolute inset-0 z-20 bg-black transition-opacity opacity-0 group-hover:opacity-20" />
+      <div className="font-semibold">Type:</div>
+      <div className="capitalize">{types?.join(', ') || '-'}</div>
+      <div className="mt-auto flex items-center text-xs text-white/80 -mr-28">
+        <FaCheckCircle className="mr-px" />
+        <div className="pl-1.5 first-letter:uppercase whitespace-nowrap" title={formattedCatchedAt}>{catchedAtDistance} ago</div>
       </div>
     </PokemonCardContainer>
   );
