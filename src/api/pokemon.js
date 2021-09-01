@@ -8,7 +8,7 @@ export const getAllPokemonNames = () => (
 export const getPokemons = ({ pageParam = 0 } = {}) => (
   client.request(GET_POKEMONS, {
     offset: pageParam,
-    limit: pageParam ? 24 : 48,
+    limit: 24,
   })
 );
 
