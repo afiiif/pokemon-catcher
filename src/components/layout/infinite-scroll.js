@@ -10,7 +10,7 @@ export default function InfiniteScroll({
 
   const handleScroll = () => {
     const isScrolledToBottom = checkIfScrolledToBottom();
-    if (isScrolledToBottom && !isFetchingNextPage) {
+    if (isScrolledToBottom) {
       fetchNextPage();
     }
   };
