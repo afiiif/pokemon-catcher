@@ -26,7 +26,8 @@ export default function PokemonStorageProvider({ children }) {
       name: pokemon.name,
       types: pokemon.types.map(({ type }) => type.name),
     };
-    updatePokemon([newPokemon, ...pokemonStorage]);
+    const oldPokemons = getLocalStorage('pokemons') || [];
+    updatePokemon([newPokemon, ...oldPokemons]);
   };
 
   const releasePokemon = (catchedAt) => {
