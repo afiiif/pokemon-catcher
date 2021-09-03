@@ -67,6 +67,7 @@ export default function Header() {
                           src={`/images/${icon}`}
                           width={36}
                           height={36}
+                          quality={1}
                           layout="responsive"
                           alt={label}
                         />
