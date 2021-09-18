@@ -5,7 +5,6 @@ import { getAllPokemonNames, getPokemon } from '../../api/pokemon';
 import DefaultLayout from '../../components/layout/default-layout';
 import PokemonDetailBottom from '../../components/section/pokemon-detail/pokemon-detail-bottom';
 import PokemonDetailTop from '../../components/section/pokemon-detail/pokemon-detail-top';
-import { NEXTJS_STATIC_PROPS_REVALIDATE } from '../../constants/config';
 import { capitalizeFirstLetter } from '../../utils/string';
 
 export default function PokemonDetailPage({ initialPokemon }) {
@@ -66,6 +65,5 @@ export async function getStaticProps({ params }) {
     props: {
       initialPokemon: await getPokemon({ queryKey: ['pokemon', params.pokemonName] }),
     },
-    revalidate: NEXTJS_STATIC_PROPS_REVALIDATE,
   };
 }
