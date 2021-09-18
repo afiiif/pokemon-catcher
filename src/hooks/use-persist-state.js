@@ -5,7 +5,8 @@ export default function usePersistState(key, initialState, onChange = () => { })
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    setState(getLocalStorage(key));
+    const savedValue = getLocalStorage(key);
+    if (typeof savedValue !== 'undefined') setState(savedValue);
   }, []);
 
   const setStateAndStorage = (newState) => {

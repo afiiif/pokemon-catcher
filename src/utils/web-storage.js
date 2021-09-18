@@ -3,7 +3,7 @@ export const setLocalStorage = (key, value) => {
 };
 
 export const getLocalStorage = (key) => {
-  if (typeof window === 'undefined') return null;
+  if (typeof window === 'undefined') return undefined;
   const value = localStorage?.getItem(key);
   if (value) {
     try {
@@ -11,10 +11,10 @@ export const getLocalStorage = (key) => {
       return parsedValue;
     } catch (err) {
       localStorage?.removeItem(key);
-      return null;
+      return undefined;
     }
   }
-  return null;
+  return undefined;
 };
 
 export const removeLocalStorage = (key) => {
