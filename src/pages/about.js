@@ -24,7 +24,7 @@ export default function AboutPage() {
       </h2>
       <div className="md:text-xl max-w-3xl pt-2 md:pt-4 text-gray-700">
         <ul className="list-disc pl-8">
-          <li><a className="link" href="https://nextjs.org/">Next.js</a> <span className="text-gray-400">&mdash; Using ISR strategy</span></li>
+          <li><a className="link" href="https://nextjs.org/">Next.js</a> <span className="text-gray-400">&mdash; Using SSG strategy</span></li>
           <li><a className="link" href="https://react-query.tanstack.com/">React Query</a></li>
           <li><a className="link" href="https://react-hook-form.com/">React Hook Form</a></li>
           <li><a className="link" href="https://tailwindcss.com/">Tailwind CSS</a></li>
