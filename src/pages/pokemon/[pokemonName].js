@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import { getAllPokemonNames, getPokemon } from '../../api/pokemon';
 import DefaultLayout from '../../components/layout/default-layout';
+import Error from '../../components/section/error';
 import PokemonDetailBottom from '../../components/section/pokemon-detail/pokemon-detail-bottom';
 import PokemonDetailTop from '../../components/section/pokemon-detail/pokemon-detail-top';
 import { capitalizeFirstLetter } from '../../utils/string';
@@ -16,28 +17,24 @@ export default function PokemonDetailPage({ initialPokemon }) {
   });
 
   const pokemon = queryPokemon.data?.pokemon;
+  const title = pokemon.status ? capitalizeFirstLetter(pokemon?.name) : 'Pokémon Not Found';
 
   return (
-    <DefaultLayout title={capitalizeFirstLetter(pokemon?.name)}>
+    <DefaultLayout title={title}>
       <div className="max-w-4xl mx-auto">
-        {(() => {
-          if (queryPokemon.isIdle || queryPokemon.isLoading) {
-            return (
-              <div>Loading...</div>
-            );
-          }
-          if (pokemon) {
-            return (
-              <>
-                <PokemonDetailTop pokemon={pokemon} />
-                <PokemonDetailBottom pokemon={pokemon} />
-              </>
-            );
-          }
-          return (
-            <div>Error</div>
-          );
-        })()}
+        {pokemon.status
+          ? (
+            <>
+              <PokemonDetailTop pokemon={pokemon} />
+              <PokemonDetailBottom pokemon={pokemon} />
+            </>
+          )
+          : (
+            <Error
+              message="Pokémon not found."
+              button={{ label: 'Back to Homepage' }}
+            />
+          )}
       </div>
     </DefaultLayout>
   );
@@ -56,7 +53,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: 'blocking',
   };
 }
 
