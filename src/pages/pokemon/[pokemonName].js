@@ -1,7 +1,7 @@
 import { useRouter } from 'next/dist/client/router';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
-import { getAllPokemonNames, getPokemon } from '../../api/pokemon';
+import { getPokemon } from '../../api/pokemon';
 import DefaultLayout from '../../components/layout/default-layout';
 import Error from '../../components/section/error';
 import PokemonDetailBottom from '../../components/section/pokemon-detail/pokemon-detail-bottom';
@@ -45,14 +45,8 @@ PokemonDetailPage.propTypes = {
 };
 
 export async function getStaticPaths() {
-  const { pokemons } = await getAllPokemonNames();
-
-  const paths = pokemons.results.map((pokemon) => ({
-    params: { pokemonName: pokemon.name },
-  }));
-
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   };
 }

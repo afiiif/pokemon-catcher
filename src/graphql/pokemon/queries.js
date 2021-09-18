@@ -13,16 +13,6 @@ export const GET_POKEMONS = gql`
   }
 `;
 
-export const GET_POKEMONS_NAME = gql`
-  query {
-    pokemons(limit: 99999, offset: 0) {
-      results {
-        name
-      }
-    }
-  }
-`;
-
 export const GET_POKEMON = gql`
   query pokemon($name: String!) {
     pokemon(name: $name) {

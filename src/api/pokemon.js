@@ -1,9 +1,5 @@
 import client from '../graphql/client';
-import { GET_POKEMON, GET_POKEMONS, GET_POKEMONS_NAME } from '../graphql/pokemon/queries';
-
-export const getAllPokemonNames = () => (
-  client.request(GET_POKEMONS_NAME)
-);
+import { GET_POKEMON, GET_POKEMONS } from '../graphql/pokemon/queries';
 
 export const getPokemons = ({ queryKey: [, offset] = [], pageParam = 0 } = {}) => (
   client.request(GET_POKEMONS, {
