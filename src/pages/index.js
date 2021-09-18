@@ -42,7 +42,7 @@ export default function HomePage({ initialPokemons }) {
       <div className={clsx('pokemon-card-container', isCompact && 'pokemon-card-container-compact')}>
         <InfiniteScroll
           query={queryPokemons}
-          skeletonOnLoading={<PokemonCardSkeleton />}
+          skeletonOnLoading={<PokemonCardSkeleton isCompact={isCompact} />}
         >
           <PokemonCards pokemons={pokemons} />
         </InfiniteScroll>
