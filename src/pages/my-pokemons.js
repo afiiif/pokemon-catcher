@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import DefaultLayout from '../components/layout/default-layout';
+import Error from '../components/section/error';
 import PokemonOwnedCard from '../components/section/pokemon-card/pokemon-owned-card';
 import PokemonReleaseConfirmationModal from '../components/section/pokemon-card/pokemon-release-confirmation-modal';
 import { usePokemonStorage } from '../components/wrapper/pokemon-storage-context';
@@ -29,19 +29,10 @@ export default function MyPokemonsPage() {
           </div>
         )
         : (
-          <div className="flex h-96 my-12 md:my-24">
-            <div className="m-auto">
-              <div className="pokeball-gray scale-[180%] mx-auto m-16">
-                <div /><div />
-              </div>
-              <div className="text-center">
-                <p className="text-gray-600">You don't have any pokémon yet.</p>
-                <Link href="/">
-                  <a className="inline-block btn btn-primary mt-6">Explore Pokémon</a>
-                </Link>
-              </div>
-            </div>
-          </div>
+          <Error
+            message="You don't have any pokémon yet."
+            button={{ label: 'Explore Pokémon' }}
+          />
         )}
     </DefaultLayout>
   );
