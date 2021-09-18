@@ -39,8 +39,8 @@ export default function PokemonReleaseConfirmationModal({ pokemon, ...modalProps
           Say good bye to <span className="font-semibold">{finalName}</span>?
         </div>
         <div className="flex justify-center pt-6 space-x-2">
-          <button type="button" className="btn-secondary w-24" onClick={modalProps.onRequestClose}>Cancel</button>
-          <button type="button" className="btn-primary w-24" onClick={onRelease}>Release</button>
+          <button type="button" className="btn btn-secondary w-24" onClick={modalProps.onRequestClose}>Cancel</button>
+          <button type="button" className="btn btn-primary w-24" onClick={onRelease}>Release</button>
         </div>
       </div>
     </Modal>

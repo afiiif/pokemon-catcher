@@ -26,11 +26,14 @@ module.exports = {
         '.input-text': {
           '@apply border border-rose-500 rounded focus:outline-none focus:ring-2 ring-rose-500/50 px-3 py-1': {},
         },
+        '.btn': {
+          '@apply rounded focus:outline-none focus:ring-2 ring-rose-500/50 px-3 py-2.5 font-semibold text-white': {},
+        },
         '.btn-primary': {
-          '@apply rounded focus:outline-none focus:ring-2 ring-rose-500/50 px-3 py-2.5 font-semibold text-white bg-rose-500': {},
+          '@apply bg-rose-500 hover:bg-rose-500/90': {},
         },
         '.btn-secondary': {
-          '@apply rounded focus:outline-none focus:ring-2 ring-rose-500/50 px-3 py-2.5 font-semibold text-white bg-gray-900': {},
+          '@apply bg-gray-900 hover:bg-gray-900/90': {},
         },
         '.h1': {
           '@apply text-3xl md:text-6xl font-bold text-gray-900 text-center md:text-left md:pt-4': {},

@@ -37,7 +37,7 @@ export default function MyPokemonsPage() {
               <div className="text-center">
                 <p className="text-gray-600">You don't have any pokémon yet.</p>
                 <Link href="/">
-                  <a className="inline-block btn-primary mt-6">Explore Pokémon</a>
+                  <a className="inline-block btn btn-primary mt-6">Explore Pokémon</a>
                 </Link>
               </div>
             </div>
